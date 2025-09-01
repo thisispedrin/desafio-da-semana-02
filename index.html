@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+
+    <style> 
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: aqua;
+            min-height: 100vh;
+            font-family: sans-serif;
+        }
+        div {
+            background-color: aquamarine;
+            padding: 15px;
+            max-width: 500px;
+            margin: 30px auto;
+            border-radius: 10px;
+        }
+        button {
+            background-color: blue;
+            color: antiquewhite;
+            border: none;
+            font-size: 17px;
+            padding: 8px 12px;
+            margin: 5px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        input {
+            background-color: deepskyblue;
+            border: 2px black solid;
+            font-size: 17px;
+            border-radius: 10px;
+            padding: 5px 10px;
+            width: 60%;
+            margin-right: 10px;
+        }
+        h1 {
+            background-color: paleturquoise;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+        ul { 
+            background-color: rgb(150, 223, 245);
+            list-style: none;
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 10px;
+        }
+        li {
+            padding: 5px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<div>    
+    <h1>Lista de Tarefas</h1>   
+    <ul></ul>
+    <input id="tarefaInput" placeholder="Escreva sua tarefa">
+    <button onclick="colocar()">Adicionar</button>
+    <button onclick="tirar()">Remover Última</button>
+    <button onclick="limpar()">Limpar Tudo</button>
+</div>
+
+<script>
+    const tarefas = ["(\\_/)", "(o-o)", "(o   o)"];
+
+    function colocar() {
+        const input = document.getElementById("tarefaInput");
+        const tarefa = input.value.trim();
+
+        if (!tarefa) {
+            alert("Escreva uma tarefa para adicionar");
+            return;
+        }
+
+        tarefas.push(tarefa);
+        input.value = "";
+        tela();
+    }
+
+    function tirar() {
+        if (tarefas.length > 0) {
+            tarefas.pop();
+            tela();
+        } else {
+            alert("Não há tarefas para remover.");
+        }
+    }
+
+    function limpar() {
+        if (tarefas.length === 0) {
+            alert("A lista já está vazia!");
+            return;
+        }
+
+        const confirmar = confirm("Tem certeza que deseja apagar todas as tarefas?");
+        if (confirmar) {
+            tarefas.length = 0;
+            tela();
+        }
+    }
+
+    function tela() {
+        const ul = document.querySelector("ul");
+        ul.innerHTML = "";
+
+        if (tarefas.length === 4) {
+            alert("Não vai esquecer de fazer ne ?");
+        } else if (tarefas.length === 1) {
+            alert("Apagou o coelhinho ;-;");
+        } else if (tarefas.length === 7) {
+            alert("quanta coisa pra fazer")
+        } else if(tarefas.length === 2) {
+            alert ("o espirito do coelho vai le assombrar")
+        }
+
+        tarefas.forEach(function (tarefa, index) {
+            const li = document.createElement("li");
+            li.innerText = `${index + 1}. ${tarefa}`;
+            ul.appendChild(li);
+        });
+    }
+
+    tela();
+</script>
+
+</body>
+</html>
