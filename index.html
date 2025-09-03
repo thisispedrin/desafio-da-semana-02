@@ -13,7 +13,7 @@
         body {
             background-color: aqua;
             min-height: 100vh;
-            font-family: sans-serif;
+            font-family: Arial,sans-serif;
         }
         div {
             background-color: rgb(99, 202, 168);
@@ -54,7 +54,6 @@
             margin-top: 15px;
             border-radius: 10px;
             max-height: 300px;
-            overflow-y: auto;
         }
         li {
             padding: 5px;
@@ -112,7 +111,7 @@
 
         const confirmar = confirm("Tem certeza que deseja apagar todas as tarefas?");
         if (confirmar) {
-            tarefas.length = 0;
+            tarefas.length === 0;
             tela();
         }
     }
