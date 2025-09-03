@@ -16,9 +16,9 @@
             font-family: sans-serif;
         }
         div {
-            background-color: aquamarine;
+            background-color: rgb(99, 202, 168);
             padding: 15px;
-            max-width: 500px;
+            max-width: 100%;
             margin: 30px auto;
             border-radius: 10px;
         }
@@ -53,6 +53,8 @@
             padding: 10px;
             margin-top: 15px;
             border-radius: 10px;
+            max-height: 300px;
+            overflow-y: auto;
         }
         li {
             padding: 5px;
@@ -82,6 +84,11 @@
             alert("Escreva uma tarefa para adicionar");
             return;
         }
+        else if (tarefa.length <= 2) {
+            alert("a tarefa precisa ter mais que duas letras")
+            return;
+        } 
+        else{}
 
         tarefas.push(tarefa);
         input.value = "";
